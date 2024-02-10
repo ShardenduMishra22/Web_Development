@@ -1,0 +1,83 @@
+.gradient-background {
+  background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.profile-img {
+  height: 100px;
+  border-radius: 20%;
+}
+
+.d-block{
+  height:400px;
+  width: 400px;;
+  border-radius: 10%;
+}
+
+.btn-primary{
+  font-weight: 500;
+}
+.catty{
+  border-radius: 60%;
+}
+.mr_catty{
+  font-size: medium;
+  font-weight: 400;
+  margin-top: 20px;
+}
+.sponser{
+  display: inline-flex;
+  justify-content: space-evenly;
+  margin: 10px;
+  margin-top: 10px;
+}
+#features{
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.fs-4{
+  padding: 10px;
+}
+.bi-arrow-bar-down{
+  height: 30px;
+  width: 50px;
+  margin: 10px;
+}
+
+.spl_hrt{
+  height: 100px;
+  width: 100px;
+}
+.last{
+  display: flex;
+  justify-content: space-around;
+}
+.container li{
+  font-size: 20px;
+  color: black;
+  font-weight: 700;
+}
+
+.container a{
+  color: darkblue;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mondrian Project</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 320px 378px 50px ;
+      grid-template-rows: 414px 285px 20px;
+      gap: 50px solid #000;
+    }
+    .class{
+        border: 1px solid #000;
+        background-color: whitesmoke;
+    }
+    .A{
+      background-color: red;
+    }
+    .B{
+      grid-area: 2/4/1/2;
+    }
+    .E {
+      grid-area: -1/4/-3/3;  
+      display: flex;
+      flex-direction: column;
+    }
+
+    .E_1, .E_2 {
+      flex: 1;
+    }
+    .E_1{
+      height: 130px;
+      border-bottom: 10px solid black;
+      background-color: blue;
+    }
+    .E_2{
+        border-top: 10px solid black;
+    }
+    .G{
+      display: flex;
+      flex-direction: row;
+    }
+    .G_1,G_2{
+      flex: 1;
+    }
+    .G_1{
+       width: 198px;
+       background-color: yellow;
+    }
+    .G_2{
+       width: 153px;
+       background-color: grey;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="class A"></div>
+    <div class="class B"></div>
+    <div class="class C"></div>
+    <div class="class D"></div>
+    <div class="class E">
+      <div class="class E_1"></div>
+      <div class="class E_2"></div>
+    </div>
+    <div class="class F"></div>
+    <div class="class G">
+      <div class="class G_1"></div>
+      <div class="class G_2"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>

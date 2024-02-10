@@ -1,0 +1,139 @@
+
+body{
+    background-color: antiquewhite;
+}
+.header{
+    height: 534px;
+    text-align: center;
+    background-color:turquoise;
+}
+.name{
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: blue;
+}
+.intro{
+    font-size: 2rem;
+    font-weight: 900;
+    color:rgb(47,39,255)
+}
+.c1{
+    display: block;
+    justify-content: left;
+    margin-left: 950px;
+}
+.c2{
+    display: block;
+    justify-content: left;
+    margin-left: 250px;
+}
+.img_mnt{
+    display: box;
+    justify-content: center;
+    height: 300px;
+    margin-top: 26px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.pfp{
+    display: block;
+    height: 200px;
+    border-radius: 50%;
+    margin: auto; 
+}
+.saltn{
+    size: 50px;
+    color:teal;    
+    padding: 40px;
+}
+.info p{
+    width: 600px;
+    text-align: center;
+}
+.skill{
+    color: cadetblue;
+    text-align: left;
+    display: flex;
+}
+.cat_gif_1,.chillies_img_1{
+    display: block;
+    margin-bottom: 80px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.img_cat{
+    border-radius: 50%;
+    height: 150px;
+    float: left;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.img_chilli{
+    border-radius: 50%;
+    height: 150px;
+    float: left;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.my_skill{
+    text-align: center;
+    margin-bottom: 50px;
+    color: cadetblue;
+}
+.skill p{
+    color: black;
+}
+.contact{
+    text-align: center;
+    color: cadetblue;
+    font-size: 1.5rem;
+}
+.contact p{
+    color: black;
+    padding : 15px;
+}
+.btn{
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.contact h3,.contacth5{
+    padding: 15px;
+}
+.cnct{
+    color:slateblue;
+    font-weight: 100;
+    font-family: 'Titan One'; 
+}
+.footer_1{
+    background-color: aquamarine;
+    height: 250px;
+}
+.py-3 li{
+    font-size: 1.7rem;
+    padding: 20px;
+}
+.px-2{
+    color: black;
+    font-weight: 900;
+}
+.py-3 li svg {
+    width: 2em;  /* Adjust the size as needed */
+    height: 2em; /* Adjust the size as needed */
+    vertical-align: middle;
+    margin-right: 5px; /* Add some space between icon and text */
+}
+
+/* Additional styling for the text */
+.py-3 li a {
+    font-size: 1rem; /* Keep the text size consistent */
+    padding: 20px;
+    display: inline-flex; /* Align icon and text horizontally */
+    align-items: center; /* Align icon and text vertically */
+}

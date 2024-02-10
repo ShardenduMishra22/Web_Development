@@ -1,0 +1,12 @@
+html{
+    background-color: grey;
+}
+.big-title{
+    font-size: 5rem;
+    font-family: cursive;
+    color: purple;
+    text-align: center;
+}
+.bag{
+    border : 10px solid black ;
+}

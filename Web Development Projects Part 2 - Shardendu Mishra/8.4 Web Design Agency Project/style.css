@@ -1,0 +1,98 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 1% 1% 0 1%;
+  background-color: rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+.main {
+  flex: 1;
+}
+#Creative{
+  color: turquoise;
+}
+h1{
+  font-size: 2rem;
+  padding-left: 15px;
+}
+h2{
+  font-size: 1rem;
+  margin-left: 30px;
+  padding-top: 25px;
+}
+p{
+  font-size: 1rem;
+  padding-left: 30px;
+}
+footer {
+  text-align: right;
+  color: midnightblue;
+}
+.card{
+  display: inline-block;
+  width: 40%;
+}
+.tile-image{
+  width: 50%;
+  height: 50%;
+  float: left;
+  margin: 30px;
+}
+.card-title{
+  margin-top: 30px;
+}
+.logo{
+  margin-left: 30px;
+}
+div>h1{
+  margin-left: 1%
+}
+/* TODO: Change the background color for each device
+[lightsalmon] Mobile Devices: 319px — 480px
+[powderblue] iPads and Tablets: 481px — 1200px
+[limegreen] Laptops: 1201px — 1600px
+[seagreen] Desktops: 1601px and more */
+
+@media (min-width :319px) and (max-width :480px){
+  body{
+    background-color : lightsalmon;
+  }
+  .left{
+    display: inline-block;
+  }
+  .right{
+    display: inline-block;
+  }
+}
+@media (min-width :481px) and (max-width :1200px){
+  body{
+    background-color: powderblue;
+  }
+  .left{
+    display: block;
+  }
+  .right{
+    display: block;
+  }
+  .card-title{
+    margin-top: 100px;
+  }
+}
+@media (min-width :1201px) and (max-width :1600px){
+  body{
+    background-color: limegreen;
+  }
+  .left{
+    display: inline-block;
+  }
+  .right{
+    display: inline-block;
+  }
+  
+}
+@media (min-width :1601px){
+  body{
+    background-color: seagreen;
+  }
+}
