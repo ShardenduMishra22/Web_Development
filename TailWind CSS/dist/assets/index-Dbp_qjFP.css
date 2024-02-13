@@ -1,0 +1,1 @@
+@tailwind base;@tailwind components;.btn{@apply bg-yellow-600 rounded-2xl m-2 py-2 px-4 font-extrabold text-emerald-900;}.btn:hover{@apply bg-blue-400 italic underline;}@tailwind utilities;
