@@ -2,6 +2,10 @@ import express from "express";
 const app = express();
 const port = 3000;
 
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
+
 // *********************
 // Let’s practice using Postman. Make sure your server is running with nodemon.
 // Then test the 5 different routes below with Postman. Open a separate tab for each request.
@@ -29,8 +33,4 @@ app.patch("/user/angela", (req, res) => {
 app.delete("/user/angela", (req, res) => {
   //Deleting
   res.sendStatus(200);
-});
-
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
 });
