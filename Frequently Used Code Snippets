@@ -1,0 +1,6 @@
+# This repository contains commonly used code snippets that I frequently use and can easily copy and paste.
+
+
+// body parser 
+import bodyParser from "body-parser";
+app.use(bodyParser.urlencoded({ extended: true }));
