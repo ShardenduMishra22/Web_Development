@@ -1,0 +1,31 @@
+In this Express.js application, middleware plays a pivotal role in processing incoming requests. Upon receiving a POST request to /submit from an HTML form (index.html), the bandNameGenerator middleware intercepts the request, extracts data from req.body (specifically street and pet inputs), concatenates them to generate a band name (bandName), and logs the request details. This middleware is registered globally using app.use, ensuring it executes for every incoming request after any preceding middleware. The server then responds by displaying the dynamically generated band name when /submit is accessed, demonstrating how middleware functions in Express.js can modify data and handle requests before they reach specific route handlers.
+
+```
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Middleware to log request details and generate band name
+app.use((req, res, next) => {
+  console.log(req.body);
+  const bandName = req.body["street"] + req.body["pet"];
+  console.log(`Generated Band Name: ${bandName}`);
+  next();
+});
+
+// Serving index.html on GET request to root
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+// Handling POST request to /submit
+app.post("/submit", (req, res) => {
+  const bandName = req.body["street"] + req.body["pet"];
+  res.send(`<h1>Your band name is:</h1><h2>${bandName} ✌️</h2>`);
+});
+
+// Starting the server
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+```
