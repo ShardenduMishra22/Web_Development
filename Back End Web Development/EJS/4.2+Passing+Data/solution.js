@@ -1,10 +1,12 @@
 import express from "express";
+
 import bodyParser from "body-parser";
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.get("/", (req, res) => {
   res.render("solution.ejs");

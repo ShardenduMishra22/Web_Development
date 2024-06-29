@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Name Letters</title>
+  <title>Shardendu Mishra</title>
 </head>
-
 <body>
-  <!-- Write your code here -->
-  <form action="/submit" method="POST">
-    <input type="text" name="fName" placeholder="First name">
-    <input type="text" name="lName" placeholder="Last name">
-    <input type="submit" value="OK">
-  </form>
+  <div>
+    <% if(Name && Name.length !== 0) {%>
+       <h1>They are <%= Name.length %> Letters in your Name</h1>
+    <% } else { %>
+    <h1>Enter Your Name and Password Below 👇</h1>
+    <% } %>
+    <form action = "submit" method="POST">
+      <input type = "text" name = "Fname" placeholder="First Name" />
+      <input type = "text" name = "Lname" placeholder="Last Name" />
+      <input type = "submit" value="OK" />
+    </form>
+  </div>
 </body>
-
 </html>

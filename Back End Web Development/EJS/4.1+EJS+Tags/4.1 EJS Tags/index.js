@@ -2,16 +2,16 @@ import express from "express";
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-  const data = {
-    title: "EJS Tags",
-    seconds: new Date().getSeconds(),
-    items: ["apple", "banana", "cherry"],
-    htmlContent: "<strong>This is some strong text</strong>",
-  };
-  res.render("index.ejs", data);
-});
+app.listen(port,() => {
+    console.log(`Server Started on port ${port}`);
+})
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.get("/",(req,res)=> {
+    const data = {
+        seconds : new Date().getSeconds(),
+        fruits : ["apple", "banana", "cherry"],
+        HtmlContent : "<em>This is some text in italic</em>",
+        Title : "<h1>EJS Tags Malum Hai Naaaaaa</h1>",
+    }
+    res.render("index.ejs",data);
 });

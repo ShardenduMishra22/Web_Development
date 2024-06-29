@@ -8,26 +8,39 @@
 </head>
 
 <body>
+  
   <h1>
     <!-- Tite goes here -->
+     <%- Title %>
   </h1>
-  <p>Current second:
+  
+  <p>
+    Current second : <%= seconds %>
     <!-- Current second goes here -->
   </p>
-  if (seconds % 2===0) {
+  
   <ul>
     <!-- List goes here if current second is even. -->
     <!-- Otherwise it should display the following: -->
     <!-- <p>No items to display</p> -->
+    <% if (seconds % 2===0) { %>
+      <% for(let i=0;i<fruits.length;i++) { %>
+            <li><%= fruits[i] %></li>
+      <% }%>
   </ul>
-  } else {
-  <p>No items to display</p>
-  }
-  <p>
+    <% } else { %>
+        <p>No items to display</p>
+    <% } %>
+    
+    
     <!-- HTML content goes here -->
-  </p>
+    <p>
+     <%- HtmlContent %>
+    </p>
 
-  <!-- Footer goes here -->
+    <!-- Footer goes here -->
+    <%- include("footer.ejs") %>
+
 </body>
 
 </html>
