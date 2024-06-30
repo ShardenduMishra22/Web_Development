@@ -5,6 +5,8 @@
 import bodyParser from "body-parser";
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// using static files
+app.use(express.static("public"));
 
 // Axios
 import axios from "axios";
