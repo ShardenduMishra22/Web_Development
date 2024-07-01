@@ -2,12 +2,12 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "123456",
-  port: 5432,
+const db = new pq.Client({
+  user : "postgres",
+  host : "localhost",
+  database : "world",
+  password : "Iamshardendumishra@22",
+  port : 5432,
 });
 
 const app = express();
