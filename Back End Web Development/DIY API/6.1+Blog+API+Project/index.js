@@ -32,23 +32,82 @@ let posts = [
   },
 ];
 
-let lastId = 3;
+let lastId = posts.length;
 
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Write your code here//
+// GET all posts
+app.get("/posts", (req, res) => {
+  res.json(posts);
+});
 
-//CHALLENGE 1: GET All posts
+// GET a specific post by id
+app.get("/posts/:id", (req, res) => { // Error 1: Fixed missing forward slash in the route
+  const id = parseInt(req.params.id);
+  const post = posts.find((p) => p.id === id);
+  if (!post) {
+    res.status(404).json({
+      message: "Post Not Found",
+    });
+  } else {
+    res.json(post); // Error 2: Added response for found post
+  }
+});
 
-//CHALLENGE 2: GET a specific post by id
+// POST a new post
+app.post("/posts", (req, res) => {
+  const NewId = posts.length + 1;
+  const NewPost = {
+    id: NewId,
+    title: req.body.title,
+    content: req.body.content,
+    author: req.body.author,
+    date: new Date(),
+  };
+  lastId = NewId;
+  posts.push(NewPost);
+  res.status(201).json(NewPost); // Error 3: Corrected variable in response
+});
 
-//CHALLENGE 3: POST a new post
+// PATCH a post when you just want to update one parameter
+app.patch("/posts/:id", (req, res) => { // Error 4: Corrected HTTP method and route
+  const id = parseInt(req.params.id);
+  const post = posts.find((p) => p.id === id);
+  if (!post) {
+    res.status(404).json({
+      message: "Post Not Found",
+    });
+  } else {
+    if (req.body.title) {
+      post.title = req.body.title;
+    }
+    if (req.body.content) {
+      post.content = req.body.content;
+    }
+    if (req.body.author) {
+      post.author = req.body.author;
+    }
+    res.json(post); // Error 5: Added response for found post
+  }
+});
 
-//CHALLENGE 4: PATCH a post when you just want to update one parameter
-
-//CHALLENGE 5: DELETE a specific post by providing the post id.
+// DELETE a specific post by providing the post id
+app.delete("/posts/:id", (req, res) => { // Error 6: Fixed missing forward slash in the route
+  const id = parseInt(req.params.id);
+  const Idx = posts.findIndex((p) => p.id === id);
+  if (Idx === -1) { // Error 7: Corrected condition check
+    res.status(404).json({
+      message: "Post Not Found",
+    });
+  } else {
+    posts.splice(Idx, 1);
+    res.json({
+      message: "Post Deleted",
+    });
+  }
+});
 
 app.listen(port, () => {
   console.log(`API is running at http://localhost:${port}`);
