@@ -32,6 +32,9 @@ WHERE id = 2;
 DELETE FROM products
 WHERE id = 69;
 
+-- Select all data from 'products'
+SELECT * FROM products;
+
 -- Create table 'products2'
 CREATE TABLE products2 (
   age INTEGER NOT NULL,
@@ -50,7 +53,3 @@ SELECT products.id, products.name, products.class, products.marks, products.rank
        products2.age, products2.fname
 FROM products
 INNER JOIN products2 ON products.id = products2.product_id;
-
--- Display
-select * from products;
-select * from products2;
