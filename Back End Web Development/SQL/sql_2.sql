@@ -1,0 +1,11 @@
+-- create table capitals(
+-- 	id int primary key,
+-- 	country varchar(45),
+-- 	capital varchar(45)
+-- );
+
+-- create table flag(
+-- 	id int primary key,
+-- 	name text,
+-- 	flag text
+-- );
