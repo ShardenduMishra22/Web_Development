@@ -1,0 +1,56 @@
+-- Create table 'products'
+CREATE TABLE products (
+  id INTEGER NOT NULL,
+  name VARCHAR(255),
+  class INT,
+  marks FLOAT,
+  ranking INT,
+  PRIMARY KEY (id)
+);
+
+-- Insert data into 'products'
+INSERT INTO products (id, name, class, marks, ranking)
+VALUES (1, 'Shardendu', 12, 98.0, 1),
+       (2, 'Mishra Ji', 12, 95.0, 2),
+       (69, 'War-sha Dall-i', 1, 8.0, NULL);
+
+-- Update marks for product with id 1
+UPDATE products
+SET marks = 99.0
+WHERE id = 1;
+
+-- Update ranking values
+UPDATE products
+SET ranking = 1
+WHERE id = 1;
+
+UPDATE products
+SET ranking = 2
+WHERE id = 2;
+
+-- Delete product with id 69
+DELETE FROM products
+WHERE id = 69;
+
+-- Create table 'products2'
+CREATE TABLE products2 (
+  age INTEGER NOT NULL,
+  fname VARCHAR(255),
+  product_id INTEGER,
+  FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+-- Insert data into 'products2'
+INSERT INTO products2 (age, fname, product_id)
+VALUES (25, 'John', 1),
+       (30, 'Jane', 2);
+
+-- Select data from 'products2' with 'INNER JOIN' to 'products'
+SELECT products.id, products.name, products.class, products.marks, products.ranking,
+       products2.age, products2.fname
+FROM products
+INNER JOIN products2 ON products.id = products2.product_id;
+
+-- Display
+select * from products;
+select * from products2;
