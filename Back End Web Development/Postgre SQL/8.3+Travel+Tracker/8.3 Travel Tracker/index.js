@@ -26,9 +26,11 @@ async function checkVisisted() {
   const result = await db.query("SELECT country_code FROM visited_country");
 
   let countries = [];
+  // console.log(result.rows);
   result.rows.forEach((country) => {
     countries.push(country.country_code);
   });
+  console.log(countries);
   return countries;
 }
 
@@ -40,7 +42,8 @@ app.get("/", async (req, res) => {
 
 //INSERT new country
 app.post("/add", async (req, res) => {
-  const input = req.body["country"];
+  const input = req.body.country;
+  // console.log(input);
 
   try {
     const result = await db.query(
@@ -49,7 +52,9 @@ app.post("/add", async (req, res) => {
     );
 
     const data = result.rows[0];
+    // console.log(data);
     const countryCode = data.country_code;
+    // console.log(countryCode);
     try {
       await db.query(
         "INSERT INTO visited_country (country_code) VALUES ($1)",
