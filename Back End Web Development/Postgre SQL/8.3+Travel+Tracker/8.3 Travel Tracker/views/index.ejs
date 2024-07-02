@@ -374,10 +374,14 @@
   <h2 class="total-count">Total Countries: <%=total%>
   </h2>
   <script>
+    /* makes the array "country_codes" so but since we get it from 
+    ejs its in form of string rather than an array so we 
+    use split to turn it to an array */ 
+    
     const country_codes = "<%= countries %>".split(",") 
     console.log(typeof ("<%= countries %>"))
     country_codes.forEach(code => {
-      document.getElementById(code).style.fill = 'teal'
+      document.getElementById(code).style.fill = 'green'
     });
 
   </script>
