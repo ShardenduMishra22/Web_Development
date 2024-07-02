@@ -50,4 +50,14 @@ const db = new pg.Client({
 });
 
 db.connect();
+
+db.query("SELECT * FROM user", (err, res) => {
+  if (err) {
+    console.error("Error executing query", err.stack);
+  } else {
+    console.log("No Error Properly Fetched");
+  }
+  db.end();
+});
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
