@@ -9,7 +9,7 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "world",
-  password: "123456",
+  password: "Iamshardendumishra@2244",
   port: 5432,
 });
 db.connect();
@@ -18,12 +18,9 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-let currentUserId = 1;
-
-let users = [
-  { id: 1, name: "Angela", color: "teal" },
-  { id: 2, name: "Jack", color: "powderblue" },
-];
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
 
 async function checkVisisted() {
   const result = await db.query("SELECT country_code FROM visited_countries");
@@ -33,6 +30,7 @@ async function checkVisisted() {
   });
   return countries;
 }
+
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
   res.render("index.ejs", {
@@ -42,6 +40,7 @@ app.get("/", async (req, res) => {
     color: "teal",
   });
 });
+
 app.post("/add", async (req, res) => {
   const input = req.body["country"];
 
@@ -66,13 +65,19 @@ app.post("/add", async (req, res) => {
     console.log(err);
   }
 });
-app.post("/user", async (req, res) => {});
+
+let currentUserId = 1;
+
+let users = [
+  { id: 1, name: "Shardendu", color: "teal" },
+  { id: 2, name: "Mishra Ji", color: "powderblue" },
+];
+
+app.post("/user", async (req, res) => {
+  
+});
 
 app.post("/new", async (req, res) => {
   //Hint: The RETURNING keyword can return the data that was inserted.
   //https://www.postgresql.org/docs/current/dml-returning.html
-});
-
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
 });
