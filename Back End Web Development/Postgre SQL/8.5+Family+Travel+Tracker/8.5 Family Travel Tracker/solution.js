@@ -9,9 +9,10 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "world",
-  password: "123456",
+  password: "Iamshardendumishra@2244",
   port: 5432,
 });
+
 db.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,13 +21,13 @@ app.use(express.static("public"));
 let currentUserId = 1;
 
 let users = [
-  { id: 1, name: "Angela", color: "teal" },
-  { id: 2, name: "Jack", color: "powderblue" },
+  { id: 1, name: "Shardendu", color: "teal" },
+  { id: 2, name: "Mishra Ji", color: "powderblue" },
 ];
 
-async function checkVisisted() {
+async function checkVisited() {
   const result = await db.query(
-    "SELECT country_code FROM visited_countries JOIN users ON users.id = user_id WHERE user_id = $1; ",
+    "SELECT country_code FROM visited_countries JOIN users ON user.id = visited_countries.users_id WHERE user.id = $1;",
     [currentUserId]
   );
   let countries = [];
@@ -43,17 +44,19 @@ async function getCurrentUser() {
 }
 
 app.get("/", async (req, res) => {
-  const countries = await checkVisisted();
+  const countries = await checkVisited();
   const currentUser = await getCurrentUser();
   res.render("index.ejs", {
     countries: countries,
     total: countries.length,
     users: users,
     color: currentUser.color,
+    error: null,
   });
 });
+
 app.post("/add", async (req, res) => {
-  const input = req.body["country"];
+  const input = req.body.country;
   const currentUser = await getCurrentUser();
 
   try {
@@ -62,8 +65,13 @@ app.post("/add", async (req, res) => {
       [input.toLowerCase()]
     );
 
+    if (result.rows.length === 0) {
+      throw new Error("Country name does not exist");
+    }
+
     const data = result.rows[0];
     const countryCode = data.country_code;
+
     try {
       await db.query(
         "INSERT INTO visited_countries (country_code, user_id) VALUES ($1, $2)",
@@ -72,9 +80,25 @@ app.post("/add", async (req, res) => {
       res.redirect("/");
     } catch (err) {
       console.log(err);
+      const countries = await checkVisited();
+      res.render("index.ejs", {
+        countries: countries,
+        total: countries.length,
+        users: users,
+        color: currentUser.color,
+        error: "Country has already been added, try again.",
+      });
     }
   } catch (err) {
     console.log(err);
+    const countries = await checkVisited();
+    res.render("index.ejs", {
+      countries: countries,
+      total: countries.length,
+      users: users,
+      color: currentUser.color,
+      error: "Country name does not exist, try again.",
+    });
   }
 });
 
