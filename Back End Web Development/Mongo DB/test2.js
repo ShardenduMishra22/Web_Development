@@ -73,4 +73,3 @@
 
 // Write Concern
 // db.Table.insertOne({name : "Shardendu Mishra", price : 1000, age : 21},{writeConcern : {w:0,j:0,wtimeout:5000}});
-
