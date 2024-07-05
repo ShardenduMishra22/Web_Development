@@ -1,64 +1,65 @@
-db.createCollection("Nonfiction",{
-    validator : {
-        $jsonSchema : { 
-            required : ["name","price"],
-            properties : {
-                name : {
-                    bsonType : 'string',
-                    description : "Must be a string!!",
-                },
-                price : {
-                    bsonType : 'number',
-                    description : "Must be a number!!",
-                },
-            },
-        },
-    },
-    validationAction : 'error' 
-});
+// db.createCollection("Nonfiction",{
+//     validator : {
+//         $jsonSchema : { 
+//             required : ["name","price"],
+//             properties : {
+//                 name : {
+//                     bsonType : 'string',
+//                     description : "Must be a string!!",
+//                 },
+//                 price : {
+//                     bsonType : 'number',
+//                     description : "Must be a number!!",
+//                 },
+//             },
+//         },
+//     },
+//     validationAction : 'error' 
+// });
+
 
 // warn is also possible but dy default its om error 
 // validationAction : 'warn'
 
-db.Nonfiction.insertMany([{
-    name : "Book 1",price : 2000},{name : "Book 2",price : '5000'},{name : "Shardendu Mishra's Book", price : 4000}],{ordered : false});
+// db.Nonfiction.insertMany([{
+//     name : "Book 1",price : 2000},{name : "Book 2",price : '5000'},{name : "Shardendu Mishra's Book", price : 4000}],{ordered : false});
 
 // to edit / modify existing collection
 
-db.runCommand({
-    collMod : "Nonfiction",
-    validator : {
-        $jsonSchema : {
-            required : ['name','price','author'],
-            properties : {
-                name : {
-                    bsonType : 'string',
-                    description : "Input a String only!!",
-                },
-                price : {
-                    bsonType : 'number',
-                    description : "Input a Number only!!",
-                },
-                author : {
-                    bsonType : 'string',
-                    description : "Input a String only!!",
-                    items : {
-                        bsonType : 'object',
-                        required : ['Name','Gmail'],
-                        properties : {
-                            name : {
-                                bsonType : 'string',
-                            },
-                            gmail : {
-                                bsonType : 'string'
-                            },
-                        },
-                    },
-                },
-            },
-        },
-    },
-});
+// db.runCommand({
+//     collMod : "Nonfiction",
+//     validator : {
+//         $jsonSchema : {
+//             required : ['name','price','author'],
+//             properties : {
+//                 name : {
+//                     bsonType : 'string',
+//                     description : "Input a String only!!",
+//                 },
+//                 price : {
+//                     bsonType : 'number',
+//                     description : "Input a Number only!!",
+//                 },
+//                 author : {
+//                     bsonType : 'string',
+//                     description : "Input a String only!!",
+//                     items : {
+//                         bsonType : 'object',
+//                         required : ['Name','Gmail'],
+//                         properties : {
+//                             name : {
+//                                 bsonType : 'string',
+//                             },
+//                             gmail : {
+//                                 bsonType : 'string'
+//                             },
+//                         },
+//                     },
+//                 },
+//             },
+//         },
+//     },
+// });
 
 
 // Insert Many 
