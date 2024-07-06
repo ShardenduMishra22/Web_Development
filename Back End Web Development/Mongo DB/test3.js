@@ -12,3 +12,7 @@
 
 // // index
 // db.collection.createIndex({ "name": "text" })
+
+// // min
+// db.products.aggregate([{ $group: {_id: null,minPrice: { $min: "$price" }}}])
+  
