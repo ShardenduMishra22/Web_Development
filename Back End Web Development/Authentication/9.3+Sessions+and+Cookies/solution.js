@@ -14,9 +14,12 @@ env.config();
 
 app.use(
   session({
-    secret: "TOPSECRETWORD",
-    resave: false,
-    saveUninitialized: true,
+    secret : "TOPSECRETWORD",
+    resave : false,
+    saveUninitialized : true,
+    cookie : {
+      maxAge : 1000 * 60 // (1000 = 1sec * 60 = 1min)
+    }
   })
 );
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,11 +29,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "secrets",
-  password: "123456",
-  port: 5432,
+  user : "postgres",
+  host : "localhost",
+  database : "secrets",
+  password : "Iamshardendumishra@2244",
+  port : 5432,
 });
 db.connect();
 
