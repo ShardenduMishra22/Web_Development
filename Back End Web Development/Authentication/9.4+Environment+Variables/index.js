@@ -12,8 +12,7 @@ const port = 3000;
 const saltRounds = 10;
 env.config();
 
-app.use(
-  session({
+app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
