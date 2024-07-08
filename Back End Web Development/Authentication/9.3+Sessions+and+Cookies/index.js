@@ -10,6 +10,14 @@ const app = express();
 const port = 3000;
 const saltRounds = 10;
 
+const db = new pg.Client({
+  user : "postgres",
+  host : "localhost",
+  database : "secrets",
+  password : "Iamshardendumishra@2244",
+  port : 5432,
+});
+db.connect();
 
 app.use(
   session({
@@ -26,15 +34,6 @@ app.use(express.static("public"));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-const db = new pg.Client({
-  user : "postgres",
-  host : "localhost",
-  database : "secrets",
-  password : "Iamshardendumishra@2244",
-  port : 5432,
-});
-db.connect();
 
 app.get("/", (req, res) => {
   res.render("home.ejs");
@@ -66,7 +65,9 @@ app.get("/secrets", (req, res) => {
   }
 });
 
-app.post("/login",passport.authenticate("local", {
+app.post(
+  "/login",
+  passport.authenticate("local", {
     successRedirect: "/secrets",
     failureRedirect: "/login",
   })
@@ -105,8 +106,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-passport.use(
-  new Strategy(async function verify(username, password, cb) {
+passport.use(new Strategy(async function verify(username, password, cb) {
     try {
       const result = await db.query("SELECT * FROM users WHERE email = $1 ", [
         username,
