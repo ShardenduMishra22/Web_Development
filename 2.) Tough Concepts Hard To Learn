@@ -1,4 +1,40 @@
-In this Express.js application, middleware plays a pivotal role in processing incoming requests. Upon receiving a POST request to /submit from an HTML form (index.html), the bandNameGenerator middleware intercepts the request, extracts data from req.body (specifically street and pet inputs), concatenates them to generate a band name (bandName), and logs the request details. This middleware is registered globally using app.use, ensuring it executes for every incoming request after any preceding middleware. The server then responds by displaying the dynamically generated band name when /submit is accessed, demonstrating how middleware functions in Express.js can modify data and handle requests before they reach specific route handlers.
+// Passport
+
+import { Strategy } from "passport-local";
+import session from "express-session";
+import passport from "passport";
+import bcrypt from "bcrypt";
+const saltRounds = 10;
+
+
+app.use(
+  session({
+    secret : "TOPSECRETWORD",
+    resave : false,
+    saveUninitialized : true,
+    cookie : {
+      maxAge : 1000 * 60 // (1000 = 1sec * 60 = 1min)
+    }
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Serialise and Deserialise
+passport.serializeUser((user, cb) => {
+  cb(null, user);
+});
+passport.deserializeUser((user, cb) => {
+  cb(null, user);
+});
+
+
+
+// In this Express.js application, middleware plays a pivotal role in processing incoming requests. 
+// Upon receiving a POST request to /submit from an HTML form (index.html), the bandNameGenerator middleware intercepts the request, extracts data from req.body (specifically street and pet inputs), concatenates them to generate a band name (bandName), and logs the request details. 
+// This middleware is registered globally using app.use, ensuring it executes for every incoming request after any preceding middleware. 
+// The server then responds by displaying the dynamically generated band name when /submit is accessed, demonstrating how middleware functions in Express.js can modify data and handle requests before they reach specific route handlers.
 
 ```
 const express = require('express');
