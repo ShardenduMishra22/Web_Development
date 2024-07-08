@@ -3,4 +3,4 @@ I embarked on a journey to learn web development and discovered an excellent cou
 
 Feel free to explore and enjoy!
 
-# ALL PASSWORD AND DATABASE USED HERE ARE SAMPLES AND DO NOT CONTAIN ANY RELEVANT INFORMATION !!!!!
+## ALL PASSWORD AND DATABASE USED HERE ARE SAMPLES AND DO NOT CONTAIN ANY RELEVANT INFORMATION !!!!!
